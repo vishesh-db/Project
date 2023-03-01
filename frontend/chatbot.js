@@ -38,6 +38,7 @@ $("#send").click(function () {
   }
   socket.emit("recieve", id, message);
 });
+console.log(wsurl);
 const socket = io(wsurl);
 socket.on("connection", function (msg) {
   console.log(msg);
