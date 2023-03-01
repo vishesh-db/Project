@@ -30,7 +30,7 @@ $("#login").click(() => {
   if (curuser === "user") {
     $.ajax({
       type: "post",
-      url: url+":80/signin",
+      url: url+"/signin",
       contentType: "application/json",
       data: JSON.stringify(obj),
       xhrFields: { withCredentials: false },
@@ -74,7 +74,7 @@ $("#login").click(() => {
   } else {
     $.ajax({
       type: "post",
-      url: url+":80/restaurant/signin",
+      url: url+"/restaurant/signin",
       contentType: "application/json",
       data: JSON.stringify(obj),
       xhrFields: { withCredentials: false },

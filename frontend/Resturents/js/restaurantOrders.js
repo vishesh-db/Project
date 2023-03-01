@@ -166,7 +166,7 @@ async function getNewOrdersApi(restaurant_id,status,currentOrders)
     let newOrdersData;
     await $.ajax({
         method:'POST',
-        url:url+":80/order/fetchRestaurantOrders/"+restaurant_id+"/"+status,
+        url:url+"/order/fetchRestaurantOrders/"+restaurant_id+"/"+status,
         success:(data)=>{newOrdersData=data}
     });
     if(currentOrders.length == 0)

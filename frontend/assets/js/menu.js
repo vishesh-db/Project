@@ -4,7 +4,7 @@ const res_id=JSON.parse(localStorage.getItem("res_id"));
 
 $.ajax({
   type: "post",
-  url: url+":80/menus/getMenu",
+  url: url+"/menus/getMenu",
   contentType: "application/json",
   data: localStorage.getItem("res_id"),
   xhrFields: { withCredentials: false },

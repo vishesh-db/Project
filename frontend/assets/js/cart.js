@@ -9,7 +9,7 @@ if(cart_id.id!=-1)
 
 $.ajax({
   type: "post",
-  url: url+":80/restaurants/info",
+  url: url+"/restaurants/info",
   contentType: "application/json",
   data: localStorage.getItem("cart_id"),
   xhrFields: { withCredentials: false },
@@ -158,7 +158,7 @@ function prepareOrder()
      
      $.ajax({
          type: "post",
-         url: url+":80/order/saveOrder",
+         url: url+"/order/saveOrder",
          contentType: "application/json",
          data: JSON.stringify(cartObj),
          xhrFields: { withCredentials: false },

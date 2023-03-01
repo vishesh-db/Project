@@ -1,4 +1,4 @@
-$.get(url+":80/getUsers", function (data, status) {
+$.get(url+"/getUsers", function (data, status) {
   console.log(data);
 
   $(document).ready(function () {

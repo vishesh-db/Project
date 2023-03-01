@@ -1,7 +1,7 @@
 function handleRestaurant(obj) {
   $.ajax({
     type: "POST",
-    url: url+":80/restaurants/approve",
+    url: url+"/restaurants/approve",
     contentType: "application/json",
     data: JSON.stringify(obj),
     xhrFields: { withCredentials: false },
@@ -18,7 +18,7 @@ function handleRestaurant(obj) {
 
 $(document).ready(function () {
   $.get(
-    url+":80/restaurants/pendingRestaurants",
+    url+"/restaurants/pendingRestaurants",
     function (obj, status) {
       obj = JSON.parse(obj);
       console.log(obj);

@@ -28,7 +28,7 @@ $("#form").click(async function (e) {
 
   let imageFormData = new FormData();
   imageFormData.append("img", image);
-  let imageres = await fetch(url+":80/upload", {
+  let imageres = await fetch(url+"/upload", {
     method: "POST",
     body: imageFormData,
   });
@@ -64,7 +64,7 @@ $("#form").click(async function (e) {
 
   $.ajax({
     type: "post",
-    url: url+":80/restaurants/addItem",
+    url: url+"/restaurants/addItem",
     contentType: "application/json",
     data: JSON.stringify(itemObj),
     xhrFields: { withCredentials: false },
@@ -83,7 +83,7 @@ $("#form").click(async function (e) {
 
 $.ajax({
   type: "post",
-  url: url+":80/menus/getMenu",
+  url: url+"/menus/getMenu",
   contentType: "application/json",
   data: JSON.stringify(res_id),
   xhrFields: { withCredentials: false },

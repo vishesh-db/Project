@@ -47,7 +47,7 @@ register.click(function () {
   };
   // curuser = JSON.stringify(curuser);
   // $.post(
-  //   url+":80/signup",
+  //   url+"/signup",
   //   curuser,
   //   function (xhr, status, responseText) {
   //     console.log("data", responseText);
@@ -56,7 +56,7 @@ register.click(function () {
   // );
   $.ajax({
     type: "post",
-    url: url+":80/signup",
+    url: url+"/signup",
     contentType: "application/json",
     data: JSON.stringify(curuser),
     xhrFields: { withCredentials: false },

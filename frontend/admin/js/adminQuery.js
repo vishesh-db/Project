@@ -1,4 +1,4 @@
-$.get(url+":80/getQueries", function (data, status) {
+$.get(url+"/getQueries", function (data, status) {
   console.log(data);
 
   $(document).ready(function () {

@@ -1,4 +1,4 @@
-$.get(url+":80/menu/starter", function (data, status) {
+$.get(url+"/menu/starter", function (data, status) {
   $(document).ready(function () {
     $("#menutable").DataTable({
       data: data,
@@ -48,7 +48,7 @@ $("#form").click(function (e) {
     console.log(fd);
     $.ajax({
       type: "post",
-      url: url+":80/menu/addStarter",
+      url: url+"/menu/addStarter",
       processData: false, // tell jQuery not to process the data
       contentType: false,
       data: fd,

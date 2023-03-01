@@ -79,7 +79,7 @@ async function getAcceptedapiCall(currentOrders)
     const status = 'accepted';
     await $.ajax({
         method:'POST',
-        url:url+":80/order/fetchRestaurantOrders/"+restaurant_id+"/"+status,
+        url:url+"/order/fetchRestaurantOrders/"+restaurant_id+"/"+status,
         success:(data)=>{newOrdersData=data}
     });
     if(currentOrders.length == 0)
