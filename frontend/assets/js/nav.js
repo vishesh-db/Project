@@ -27,7 +27,7 @@ if(user){
              }
              $.ajax({
               type: "post",
-              url: url+":3000/addCart",
+              url: url+":80/addCart",
               contentType: "application/json",
               data: JSON.stringify(cartObj),
               xhrFields: { withCredentials: false },

@@ -20,7 +20,7 @@
 //             'method' : 'PUT',
 //             contentType : 'application/json',
 //             'data' : JSON.stringify(obj),
-//             'url' : 'http://localhost:3000/api/places',
+//             'url' : 'http://localhost:80/api/places',
 //             "success" : (e) => {alert("Updating a place is Successfully done");},
 //             error : (e) => {
 //                 alert("Error while updating place","bg-danger");

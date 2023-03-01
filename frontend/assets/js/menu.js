@@ -4,7 +4,7 @@ const res_id=JSON.parse(localStorage.getItem("res_id"));
 
 $.ajax({
   type: "post",
-  url: url+":3000/menus/getMenu",
+  url: url+":80/menus/getMenu",
   contentType: "application/json",
   data: localStorage.getItem("res_id"),
   xhrFields: { withCredentials: false },
@@ -81,9 +81,9 @@ function fun1(obj)
                map.set(obj.id,obj);
                localStorage.myMap = JSON.stringify(Array.from(map.entries()));
                localStorage.setItem("cart_id",JSON.stringify(res_id));
-               swal("Succesfully Added to Cart","Account Created Succesfully Please Sign in.","success");
-             //  alert("");
-            }
+              // swal("Succesfully Added to Cart","Account Created Succesfully Please Sign in.","success");
+              alert("Succesfully Added to Cart");
+             }
            else
             {
 

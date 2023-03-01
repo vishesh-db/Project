@@ -3,7 +3,7 @@ let obj={
 }
  $.ajax({
   type: "POST",
-  url: url+":3000/analytics/charts",
+  url: url+":80/analytics/charts",
   contentType: "application/json",
   data: JSON.stringify(obj),
   xhrFields: { withCredentials: false },

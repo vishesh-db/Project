@@ -4,7 +4,7 @@ var obj = {
 console.log(url);
 $.ajax({
   type: "POST",
-  url: url+":3000/analytics/menuAnalysis",
+  url: url+":80/analytics/menuAnalysis",
   contentType: "application/json",
   data: JSON.stringify(obj),
   xhrFields: { withCredentials: false },
@@ -44,7 +44,7 @@ $.ajax({
 
 $.ajax({
   type: "POST",
-  url: url+":3000/analytics/charts",
+  url: url+":80/analytics/charts",
   contentType: "application/json",
   data: JSON.stringify(obj),
   xhrFields: { withCredentials: false },
@@ -117,7 +117,7 @@ $.ajax({
 
 $.ajax({
   type: "post",
-  url: url+":3000/analytics/total",
+  url: url+":80/analytics/total",
   contentType: "application/json",
   data: JSON.stringify(obj),
   xhrFields: { withCredentials: false },
@@ -133,7 +133,7 @@ $.ajax({
 
 $.ajax({
   type: "post",
-  url: url+":3000/analytics/uniqueUsers",
+  url: url+":80/analytics/uniqueUsers",
   contentType: "application/json",
   data: JSON.stringify(obj),
   xhrFields: { withCredentials: false },
@@ -148,7 +148,7 @@ $.ajax({
 
 $.ajax({
   type: "post",
-  url: url+":3000/analytics/orderAnal",
+  url: url+":80/analytics/orderAnal",
   contentType: "application/json",
   data: JSON.stringify(obj),
   xhrFields: { withCredentials: false },

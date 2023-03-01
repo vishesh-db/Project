@@ -3,7 +3,7 @@ async function orderPrepared(restaurant_id,orderId, status)
     let prepData;
     await $.ajax({
         method:'POST',
-        url: 'http://localhost:3000/order/updateRestaurantOrder/'+restaurant_id+'/'+orderId+'/'+status,
+        url: 'http://localhost:80/order/updateRestaurantOrder/'+restaurant_id+'/'+orderId+'/'+status,
         contentType:'application/json',
         success:(data)=>{prepData= data},
         error: (error)=>alert("Something went wrong while accepting "+error)
@@ -79,7 +79,7 @@ async function getAcceptedapiCall(currentOrders)
     const status = 'accepted';
     await $.ajax({
         method:'POST',
-        url:url+":3000/order/fetchRestaurantOrders/"+restaurant_id+"/"+status,
+        url:url+":80/order/fetchRestaurantOrders/"+restaurant_id+"/"+status,
         success:(data)=>{newOrdersData=data}
     });
     if(currentOrders.length == 0)

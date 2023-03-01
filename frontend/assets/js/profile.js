@@ -6,7 +6,7 @@ $("#email").attr("placeholder", user.email);
 
 $.ajax({
   type: "post",
-  url: url+":3000/analytics/userOrderHistory",
+  url: url+":80/analytics/userOrderHistory",
   contentType: "application/json",
   data: JSON.stringify({
     id: user._id,

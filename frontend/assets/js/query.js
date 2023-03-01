@@ -13,7 +13,7 @@ $("#querySubmit").click(()=>{
     }
     $.ajax({
         type: "post",
-        url: url+":3000/addQueries",
+        url: url+":80/addQueries",
         contentType: "application/json",
         data: JSON.stringify(queryObj),
         xhrFields: { withCredentials: false },

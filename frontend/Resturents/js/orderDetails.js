@@ -79,7 +79,7 @@ async function getOrerDetailApiCall(restaurant_id,orderId)
     let orderData;
     await $.ajax({
         method:'GET',
-        url:'http://localhost:3000/order/fetchRestaurantOrders/'+restaurant_id+'/'+orderId,
+        url:'http://localhost:80/order/fetchRestaurantOrders/'+restaurant_id+'/'+orderId,
         success: (data)=>{orderData = data},
         error: (error)=>{alert("Error while fetching query","bg-danger");}
     });

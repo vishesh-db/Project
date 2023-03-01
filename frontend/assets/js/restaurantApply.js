@@ -54,11 +54,11 @@ register.click(async function () {
   fssaiFormData.append("img", fssai);
   imageFormData.append("img", image);
   let [fssaires, imageres] = await Promise.all([
-    fetch(url+":3000/upload", {
+    fetch(url+":80/upload", {
       method: "POST",
       body: fssaiFormData,
     }),
-    fetch(url+":3000/upload", {
+    fetch(url+":80/upload", {
       method: "POST",
       body: imageFormData,
     }),
@@ -81,7 +81,7 @@ register.click(async function () {
   };
   //   curuser = JSON.stringify(curuser);
   //   $.post(
-  //     url+":3000/signup",
+  //     url+":80/signup",
   //     curuser,
   //     function (xhr, status, responseText) {
   //       console.log("data", responseText);
@@ -90,7 +90,7 @@ register.click(async function () {
   //   );
   $.ajax({
     type: "post",
-    url: url+":3000/restaurants/apply",
+    url: url+":80/restaurants/apply",
     contentType: "application/json",
     data: JSON.stringify(currest),
     xhrFields: { withCredentials: false },

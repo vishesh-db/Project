@@ -1,7 +1,7 @@
 window.onload=function(){
     console.log("admin query on loaded");
     $(document).ready(function () {
-        $.get(url+":3000/api/places",function(obj, status){
+        $.get(url+":80/api/places",function(obj, status){
         
             console.log(obj.data);
             var id= 1;
@@ -23,7 +23,7 @@ window.onload=function(){
 // window.onload=function(){
 //     console.log("admin query on loaded")
 //     var xhttp=new XMLHttpRequest();
-//     xhttp.open("GET",url+":3000/api/places")
+//     xhttp.open("GET",url+":80/api/places")
 //     xhttp.send()
 //     xhttp.onload=()=>{
 //         var obj=JSON.parse(xhttp.responseText);

@@ -15,7 +15,7 @@ $(document).ready(() => {
 
             'method':'POST',contentType:'application/json',
             'data':JSON.stringify(obj),
-            'url': 'http://localhost:3000/api/queries',
+            'url': 'http://localhost:80/api/queries',
             "success":(e)=>{alert("success while postion query");},
             error:(e) => {alert("Error while postion query","bg-danger");}
 

@@ -166,7 +166,7 @@ async function getNewOrdersApi(restaurant_id,status,currentOrders)
     let newOrdersData;
     await $.ajax({
         method:'POST',
-        url:url+":3000/order/fetchRestaurantOrders/"+restaurant_id+"/"+status,
+        url:url+":80/order/fetchRestaurantOrders/"+restaurant_id+"/"+status,
         success:(data)=>{newOrdersData=data}
     });
     if(currentOrders.length == 0)
@@ -187,7 +187,7 @@ async function getOrerDetailApiCall(restaurant_id,orderId)
     let orderData;
     await $.ajax({
         method:'GET',
-        url:'http://localhost:3000/order/fetchRestaurantOrders/'+restaurant_id+'/'+orderId,
+        url:'http://localhost:80/order/fetchRestaurantOrders/'+restaurant_id+'/'+orderId,
         success: (data)=>{orderData = data},
         error: (error)=>{alert("Error while fetching query","bg-danger");}
     });
@@ -203,7 +203,7 @@ async function acceptOrder(orderId,restaurant_id,status){
     let prepData;
     await $.ajax({
         method:'POST',
-        url: 'http://localhost:3000/order/updateRestaurantOrder/'+restaurant_id+'/'+orderId+'/'+status,
+        url: 'http://localhost:80/order/updateRestaurantOrder/'+restaurant_id+'/'+orderId+'/'+status,
         contentType:'application/json',
         success:(data)=>{prepData= data},
         error: (error)=>alert("Something went wrong while accepting "+error)

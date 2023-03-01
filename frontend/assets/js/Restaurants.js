@@ -1,4 +1,4 @@
-$.get(url+":3000/restaurants/display", function (data, status) {
+$.get(url+":80/restaurants/display", function (data, status) {
 
   const restaurant = data;
 
