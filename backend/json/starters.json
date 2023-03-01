@@ -1,0 +1,78 @@
+{
+    "data": [
+        {
+            "id": "1",
+            "name": "Paneer Tikka",
+            "ingredients": [
+                "Panner",
+                "Chili peppers",
+                "Tomato",
+                "Garlic",
+                "Yogurt"
+            ],
+            "img": "https://i.ndtvimg.com/i/2017-12/paneer-tikka_650x400_61512457125.jpg",
+            "cost": "320"
+        },
+        {
+            "id": "2",
+            "name": "Kakori Kebabs",
+            "ingredients": [
+                "Mutton",
+                "deren",
+                "trataro",
+                "filede",
+                "nerada"
+            ],
+            "img": "https://i.ndtvimg.com/i/2018-01/kakori-kebab_620x330_41514982101.jpg",
+            "cost": "14.95"
+        },
+        {
+            "id": "3",
+            "name": "Est Eligendi",
+            "ingredients": [
+                "Lorem",
+                "deren",
+                "trataro",
+                "filede",
+                "nerada"
+            ],
+            "cost": "8.95"
+        },
+        {
+            "id": "4",
+            "name": "Eos Luibusdam",
+            "ingredients": [
+                "Lorem",
+                "deren",
+                "trataro",
+                "filede",
+                "nerada"
+            ],
+            "cost": "12.95"
+        },
+        {
+            "id": "5",
+            "name": "Magnam Tiste",
+            "ingredients": [
+                "Lorem",
+                "deren",
+                "trataro",
+                "filede",
+                "nerada"
+            ],
+            "cost": "5.95"
+        },
+        {
+            "id": "6",
+            "name": "Laboriosam Direva",
+            "ingredients": [
+                "Lorem",
+                "deren",
+                "trataro",
+                "filede",
+                "nerada"
+            ],
+            "cost": "9.95"
+        }
+    ]
+}

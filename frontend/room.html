@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js" integrity="sha384-/KNQL8Nu5gCHLqwqfQjA689Hhoqgi2S84SNUxC3roTe4EhJ9AfLkp8QiQcU8AMzI" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <link rel="stylesheet" href="./delete.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="roomID"></div>
+    <section class="msger">
+        <header class="msger-header">
+          <div class="msger-header-title">
+            <i class="fas fa-comment-alt"></i> Admin Support
+          </div>
+          <div class="msger-header-options">
+            <span><i class="fas fa-cog"></i></span>
+          </div>
+        </header>
+      
+        <main class="msger-chat" id="chats">
+      
+        </main>
+      
+        <div class="msger-inputarea">
+          <input type="text" class="msger-input" id="inputmsg" placeholder="Enter your message..."/>
+          <button class="msger-send-btn" id="send">Send</button>
+        </div>
+      </section>
+      <script src="url.js"></script>
+
+    <script src="/room.js"></script>
+</body>
+</html>
