@@ -1,7 +1,7 @@
 var obj = {
   id: 1,
 };
-
+console.log(url);
 $.ajax({
   type: "POST",
   url: url+":3000/analytics/menuAnalysis",
