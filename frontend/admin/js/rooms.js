@@ -1,7 +1,7 @@
 // $.get(url+":3007/getRooms", (data, success) => {
 //   console.log(data);
 // });
-const socket = io("ws://localhost:3007");
+const socket = io(wsurl);
 socket.on("connection", function (msg) {
   console.log(msg);
 });

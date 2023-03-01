@@ -38,7 +38,7 @@ $("#send").click(function () {
   }
   socket.emit("recieve", id, message);
 });
-const socket = io("ws://localhost:3007");
+const socket = io(wsurl);
 socket.on("connection", function (msg) {
   console.log(msg);
   socket.emit("newUser", { name: curname, id: id }, "Hello darling");
