@@ -1,8 +1,6 @@
-function addOrderToRestaurant(status, newOrders)
-{
-    for(order of newOrders)
-    {
-        let orderTemplate = `
+function addOrderToRestaurant(status, newOrders) {
+  for (order of newOrders) {
+    let orderTemplate = `
                 <div class="orderin-bx d-flex align-items-center justify-content-between mt-1">
                     <div>
                         <h4>${status} #${order.orderId}</h4>
@@ -14,27 +12,18 @@ function addOrderToRestaurant(status, newOrders)
                     </div>
                 </div>    
                         `;
-        if(status == "Order_in")
-        {
-            $("#nav-order").append(orderTemplate);
-        }
-        else if(status == "prepared")
-        {
-            $("#nav-prepared").append(orderTemplate);
-        }
-        else if(status == "delivered")
-        {
-            $("#nav-delivered").append(orderTemplate);
-        }
-
+    if (status == "Order_in") {
+      $("#nav-order").append(orderTemplate);
+    } else if (status == "prepared") {
+      $("#nav-prepared").append(orderTemplate);
+    } else if (status == "delivered") {
+      $("#nav-delivered").append(orderTemplate);
     }
+  }
 }
 
-
-function addOrderDetailsToRest(orderData)
-{
-
-    let temp1 = `
+function addOrderDetailsToRest(orderData) {
+  let temp1 = `
             <h4 class="cate-title mb-sm-3 mb-2 mt-xl-0 mt-3">Order Details</h4>
             <div class="card h-auto">
                 <div class="card-body">
@@ -76,20 +65,20 @@ function addOrderDetailsToRest(orderData)
                         <div class="col-xl-2"></div>
                     </div>
                     <div class="order-menu style-1 mt-3">
-                        <h4>Order Menu</h4>`
-    let temp2=``;
-    $.each(orderData.items, (i)=>{
-        temp2+=`<div class="d-flex align-items-center mb-4">
+                        <h4>Order Menu</h4>`;
+  let temp2 = ``;
+  $.each(orderData.items, (i) => {
+    temp2 += `<div class="d-flex align-items-center mb-4">
         <img class="me-3" src="images/Menu/pizza1.jpg" alt="">
         <div>
             <h4 class="item font-w600 text-nowrap mb-0"><a href="javascript:void(0);">${orderData.items[i].item}</a></h4>
             <p class="mb-0">X${orderData.items[i].quantity}</p>
         </div>
         <h4 class="text mb-0 ms-auto">${orderData.items[i].price}</h4>
-    </div>`
-    })
-                        
-    let temp3=`
+    </div>`;
+  });
+
+  let temp3 = `
                 </div>
                     <hr style="opacity:0.7" />
                     <div class="d-flex align-items-center justify-content-between">
@@ -97,132 +86,135 @@ function addOrderDetailsToRest(orderData)
                         <h4 class="cate-title text">$12.59</h4>
                     </div>
                 </div>
-            </div>`
-            
-    let temp4=``;
-                if(orderData.status == "Order_in")
-                {
-                    temp4+=`
+            </div>`;
+
+  let temp4 = ``;
+  if (orderData.status == "Order_in") {
+    temp4 += `
                     <div class="status">
                         <div class="text-end mt-3">    
                             <a href="javascript:void(0);" onclick="acceptOrder(${orderData.orderId},${orderData.restaurant_id},'rejected')" class="btn btn-outline-danger me-sm-4 me-2">Reject Order</a>
                             <a href="javascript:void(0);" onclick="acceptOrder(${orderData.orderId},${orderData.restaurant_id},'accepted')" class="btn btn-warning">Accept Order</a>
                         </div>
                     </div>
-                    `
-                }
-                else
-                {
-                    temp4+=`
+                    `;
+  } else {
+    temp4 += `
                     <div class="status">
                         <div class="text-end mt-3">    
                         <h4>Order is ${orderData.status}</h4>
                         </div>
                     </div>  
-                    `
-                }
-           
-                                
-    let orderDetailsTemplate = temp1+temp2+temp3+temp4;
-    $("#order_detail").html('');
-    $("#order_detail").append(orderDetailsTemplate);
+                    `;
+  }
+
+  let orderDetailsTemplate = temp1 + temp2 + temp3 + temp4;
+  $("#order_detail").html("");
+  $("#order_detail").append(orderDetailsTemplate);
 }
 
-function addNewOrder(currentOrders, newOrdersData)
-{
-    if(currentOrders.length > newOrdersData.length)
-    {
-        
+function addNewOrder(currentOrders, newOrdersData) {
+  if (currentOrders.length > newOrdersData.length) {
+  }
+  const mergedArray = [...currentOrders, ...newOrdersData];
+  const frequencyTable = {};
+
+  mergedArray.forEach((obj) => {
+    const key = obj.orderId;
+    frequencyTable[key] = (frequencyTable[key] || 0) + 1;
+  });
+
+  const nonDuplicateObjects = mergedArray.filter((obj) => {
+    const key = obj.orderId;
+    return frequencyTable[key] === 1 && currentOrders.length;
+  });
+  if (currentOrders.length > newOrdersData.length) {
+    const index = currentOrders.indexOf(...nonDuplicateObjects);
+
+    if (index > -1) {
+      currentOrders.splice(index, 1);
     }
-    const mergedArray = [...currentOrders, ...newOrdersData];
-    const frequencyTable = {};
-    
-    mergedArray.forEach(obj => {
-        const key = obj.orderId;
-        frequencyTable[key] = (frequencyTable[key] || 0) + 1;
-    });
-    
-    const nonDuplicateObjects = mergedArray.filter(obj => {
-        const key = obj.orderId;
-        return frequencyTable[key] === 1 && currentOrders.length;
-    });
-    if(currentOrders.length > newOrdersData.length)
-    {
-        const index = currentOrders.indexOf(...nonDuplicateObjects);
-        
-        if (index > -1) {
-            currentOrders.splice(index, 1);
-        }
-        return [];
-    }
-    else{
-        currentOrders.push(...nonDuplicateObjects);
-        return nonDuplicateObjects;
-    }
+    return [];
+  } else {
+    currentOrders.push(...nonDuplicateObjects);
+    return nonDuplicateObjects;
+  }
 }
 
-async function getNewOrdersApi(restaurant_id,status,currentOrders)
-{
-    let newOrdersData;
-    await $.ajax({
-        method:'POST',
-        url:url+"/order/fetchRestaurantOrders/"+restaurant_id+"/"+status,
-        success:(data)=>{newOrdersData=data}
-    });
-    if(currentOrders.length == 0)
-    {
-        addOrderToRestaurant(status, newOrdersData);
-        currentOrders.push(...newOrdersData);
-    }   
-    else
-    {
-        let newOrder= addNewOrder(currentOrders, newOrdersData); 
-        addOrderToRestaurant(status, newOrder);
-    }
-    
+async function getNewOrdersApi(restaurant_id, status, currentOrders) {
+  let newOrdersData;
+  await $.ajax({
+    method: "POST",
+    url: url + "/order/fetchRestaurantOrders/" + restaurant_id + "/" + status,
+    success: (data) => {
+      newOrdersData = data;
+    },
+  });
+  if (currentOrders.length == 0) {
+    addOrderToRestaurant(status, newOrdersData);
+    currentOrders.push(...newOrdersData);
+  } else {
+    let newOrder = addNewOrder(currentOrders, newOrdersData);
+    addOrderToRestaurant(status, newOrder);
+  }
 }
 
-async function getOrerDetailApiCall(restaurant_id,orderId)
-{
-    let orderData;
-    await $.ajax({
-        method:'GET',
-        url:'http://localhost:80/order/fetchRestaurantOrders/'+restaurant_id+'/'+orderId,
-        success: (data)=>{orderData = data},
-        error: (error)=>{alert("Error while fetching query","bg-danger");}
-    });
-    addOrderDetailsToRest(...orderData);
+async function getOrerDetailApiCall(restaurant_id, orderId) {
+  let orderData;
+  await $.ajax({
+    method: "GET",
+    url: url + "/order/fetchRestaurantOrders/" + restaurant_id + "/" + orderId,
+    success: (data) => {
+      orderData = data;
+    },
+    error: (error) => {
+      alert("Error while fetching query", "bg-danger");
+    },
+  });
+  addOrderDetailsToRest(...orderData);
 }
 
-function addOrderDetail(orderId){
-    let restaurant_id = 1;
-    getOrerDetailApiCall(restaurant_id,orderId);
-};
-
-async function acceptOrder(orderId,restaurant_id,status){
-    let prepData;
-    await $.ajax({
-        method:'POST',
-        url: 'http://localhost:80/order/updateRestaurantOrder/'+restaurant_id+'/'+orderId+'/'+status,
-        contentType:'application/json',
-        success:(data)=>{prepData= data},
-        error: (error)=>alert("Something went wrong while accepting "+error)
-    })
-    if(prepData.modifiedCount ==1)
-    {
-        $(".text-end").remove();
-        let orderStatus = `<div class="text-end mt-3" ><h4>Order is ${status}</h4></div>`;
-        $(".status").append(orderStatus);
-    }
+function addOrderDetail(orderId) {
+  let restaurant_id = 1;
+  getOrerDetailApiCall(restaurant_id, orderId);
 }
 
+async function acceptOrder(orderId, restaurant_id, status) {
+  let prepData;
+  await $.ajax({
+    method: "POST",
+    url:
+      url +
+      "/order/updateRestaurantOrder/" +
+      restaurant_id +
+      "/" +
+      orderId +
+      "/" +
+      status,
+    contentType: "application/json",
+    success: (data) => {
+      prepData = data;
+    },
+    error: (error) => alert("Something went wrong while accepting " + error),
+  });
+  if (prepData.modifiedCount == 1) {
+    $(".text-end").remove();
+    let orderStatus = `<div class="text-end mt-3" ><h4>Order is ${status}</h4></div>`;
+    $(".status").append(orderStatus);
+  }
+}
 
-$(document).ready(()=>{
-    let restaurant_id = 1;
-    var currentOrders=[];
-    setInterval(()=> getNewOrdersApi(restaurant_id,"Order_in",currentOrders),1000);
-    
-    var prepOrders = [];
-    setInterval(()=> getNewOrdersApi(restaurant_id,"prepared",prepOrders),2000);
-   
+$(document).ready(() => {
+  let restaurant_id = 1;
+  var currentOrders = [];
+  setInterval(
+    () => getNewOrdersApi(restaurant_id, "Order_in", currentOrders),
+    1000
+  );
+
+  var prepOrders = [];
+  setInterval(
+    () => getNewOrdersApi(restaurant_id, "prepared", prepOrders),
+    2000
+  );
 });
