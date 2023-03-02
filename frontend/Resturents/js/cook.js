@@ -3,7 +3,7 @@ async function orderPrepared(restaurant_id,orderId, status)
     let prepData;
     await $.ajax({
         method:'POST',
-        url: 'http://localhost:80/order/updateRestaurantOrder/'+restaurant_id+'/'+orderId+'/'+status,
+        url: url+'/order/updateRestaurantOrder/'+restaurant_id+'/'+orderId+'/'+status,
         contentType:'application/json',
         success:(data)=>{prepData= data},
         error: (error)=>alert("Something went wrong while accepting "+error)

@@ -1,2 +1,2 @@
-//const url="https://yumapi.prashantdey.in";
-const url="http://localhost:3000"
+const url="https://yumapi.prashantdey.in";
+const wsurl="wss://yumapi.prashantdey.in:3007";

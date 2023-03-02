@@ -2,7 +2,8 @@ let rooms = window.location.hash;
 rooms = rooms.split("#");
 let custname = rooms[2];
 let room = rooms[1];
-const socket = io("ws://localhost:3007");
+console.log(wsurl);
+const socket = io(wsurl);
 socket.on("connection", function (msg) {
   console.log(msg);
   socket.emit("newAdmin", room, "Hello world");
