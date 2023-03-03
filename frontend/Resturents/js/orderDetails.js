@@ -59,7 +59,7 @@ function addOrderDetailsToRest(orderData) {
                     <hr style="opacity:0.7" />
                     <div class="d-flex align-items-center justify-content-between">
                         <h4 class="font-w500 mb-0">Total</h4>
-                        <h4 class="cate-title text">$12.59</h4>
+                        <h4 class="cate-title text">${orderData.total}</h4>
                     </div>
                 </div>
             </div>
